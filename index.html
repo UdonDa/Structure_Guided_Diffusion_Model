@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Structure-Guided Diffusion Model for Large-Hole Image Completion">
+  <meta name="keywords" content="SGDM, Diffusion model, image inpainting, completion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Structure-Guided Diffusion Model for Large-Hole Image Completion</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">A Structure-Guided Diffusion Model for Large-Hole Image Completion</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://udonda.github.io/">Daichi Horita</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://jlyang.org/">Jiaolong Yang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="http://www.dongchen.pro/">Dong Chen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://koyama.xyz/">Yuki Koyama</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.hal.t.u-tokyo.ac.jp/~aizawa/">Kiyoharu Aizawa</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://disi.unitn.it/~sebe/">Nicu Sebe</a><sup>4</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Tokyo,</span>
+            <span class="author-block"><sup>2</sup>Microsoft Research Asia</span>
+            <span class="author-block"><sup>3</sup>AIST,</span>
+            <span class="author-block"><sup>4</sup>University of Trento</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2211.10437"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2211.10437"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/UdonDa/Structure_Guided_Diffusion_Model"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.png"/>
+      <h2 class="subtitle has-text-centered">
+        The SGDM first generates edges within missing regions, indicated by blue. Then, it produces textured images using the edges as structural guidance. Optionally, the edges can be manually edited, which are then refined by SDEdit using the SGDM’s prior, represented by green. The SGDM’s stochastic process allows for generating diverse outputs.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Image completion techniques have made significant progress in filling missing regions (i.e., holes) in images. However, large-hole completion remains challenging due to limited structural information. In this paper, we address this problem by integrating explicit structural guidance into diffusion-based image completion, forming our structure-guided diffusion model (SGDM). It consists of two cascaded diffusion probabilistic models: structure and texture generators. The structure generator generates an edge image representing plausible structures within the holes, which is then used for guiding the texture generation process. To train both generators jointly, we devise a novel strategy that leverages optimal Bayesian denoising, which denoises the output of the structure generator in a single step and thus allows backpropagation. Our diffusion-based approach enables a diversity of plausible completions, while the editable edges allow for editing parts of an image. Our experiments on natural scene (Places) and face (CelebA-HQ) datasets demonstrate that our method achieves a superior or comparable visual quality compared to state-of-the-art approaches.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+        <!-- Framework. -->
+        <h3 class="title is-4">SGDM Framework</h3>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/indiv_joint.png"/>
+        </div>
+        <!--/ Framework. -->
+
+
+        <!-- Main result. -->
+        <h3 class="title is-4">Comparison</h3>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/figmainresult.png"/>
+        </div>
+        <!--/ Main result. -->
+
+
+        <!-- Prompt. -->
+        <h3 class="title is-4">Comparison</h3>
+        <div class="content has-text-justified">
+          <p>
+            Language-guided image completion for (a) structure and (b) texture modifications.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/prompt_editing.png"/>
+        </div>
+        <!--/ Prompt. -->
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{horita2023structureguided
+      title={A Structure-Guided Diffusion Model for Large-Hole Image Completion}, 
+      author={Daichi Horita and Jiaolong Yang and Dong Chen and Yuki Koyama and Kiyoharu Aizawa and Nicu Sebe},
+      year={2023},
+      booktitle   = {BMVC},
+      year      = {2023},
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            We thank the authors of <a href="https://github.com/nerfies/nerfies.github.io" class="external-link">Nerfies</a> that kindly open sourced the template of this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
