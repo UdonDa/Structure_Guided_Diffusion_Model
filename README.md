@@ -14,6 +14,8 @@ The official PyTorch implementation for the following paper:
 - [ ] Add evaluation code
 - [ ] Add dataset split
 
+# Training and testing dataset split
+Please see `data_splits/` directory.
 
 
 # Citation
