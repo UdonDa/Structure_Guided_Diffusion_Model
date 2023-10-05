@@ -12,7 +12,7 @@ The official PyTorch implementation for the following paper:
 - [ ] Add pretrained models
 - [ ] Add training code
 - [ ] Add evaluation code
-- [ ] Add dataset split
+- [x] Add dataset split
 
 # Training and testing dataset split
 Please see `data_splits/` directory.
